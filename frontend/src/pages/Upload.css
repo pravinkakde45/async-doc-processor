@@ -1,0 +1,111 @@
+.upload-page {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.upload-header h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.icon-border {
+  border: 1px dashed var(--border-color);
+  border-radius: 50%;
+}
+
+.dropzone {
+  border: 2px dashed var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 4rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: var(--bg-hover);
+  transition: all 0.2s ease;
+}
+
+.dropzone.drag-active {
+  border-color: var(--primary);
+  background-color: var(--primary-light);
+}
+
+.dropzone-icon {
+  background-color: var(--bg-card);
+  padding: 1rem;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  display: inline-flex;
+}
+
+.hidden-input {
+  display: none;
+}
+
+.queue-title {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.queue-item {
+  display: flex;
+  background-color: var(--bg-card);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  gap: 1rem;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-color);
+}
+
+.queue-item-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: var(--bg-hover);
+  border-radius: var(--radius-md);
+  flex-shrink: 0;
+}
+
+.queue-item-content {
+  flex: 1;
+}
+
+.item-failed {
+  border-left: 4px solid var(--danger);
+}
+
+.item-failed .queue-item-icon {
+  background-color: transparent;
+  width: auto;
+  align-items: flex-start;
+  padding-top: 0.25rem;
+}
+
+.icon-btn-small {
+  color: var(--text-muted);
+  background: transparent;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  transition: background-color 0.2s;
+}
+
+.icon-btn-small:hover {
+  background-color: var(--bg-hover);
+  color: var(--text-primary);
+}
+
+.upload-footer {
+  border-top: 1px solid var(--border-color);
+  padding-top: 1.5rem;
+}

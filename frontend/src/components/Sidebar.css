@@ -1,0 +1,104 @@
+.sidebar {
+  width: 260px;
+  background-color: var(--bg-sidebar);
+  border-right: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding: 1.5rem;
+}
+
+.sidebar-header {
+  margin-bottom: 2rem;
+}
+
+.sidebar-header h2 {
+  font-size: 1.25rem;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+  font-weight: 700;
+}
+
+.sidebar-header .subtitle {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-md);
+  color: var(--text-secondary);
+  font-weight: 500;
+  cursor: pointer;
+  background: transparent;
+  width: 100%;
+  text-align: left;
+  border: 1px solid transparent;
+}
+
+.nav-item:hover:not(.disabled) {
+  background-color: var(--bg-hover);
+  color: var(--text-primary);
+}
+
+.nav-item.active {
+  background-color: var(--primary-light);
+  color: var(--primary);
+  border: 1px dashed var(--primary);
+}
+
+.nav-item.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.mt-auto {
+  margin-top: auto;
+}
+
+.sidebar-footer {
+  margin-top: 2rem;
+  border-top: 1px dashed var(--border-color);
+  padding-top: 1.5rem;
+}
+
+.upload-btn {
+  margin-bottom: 1rem;
+}
+
+.logout-item {
+  color: var(--danger) !important;
+  border: 1px dashed transparent;
+}
+
+.logout-item:hover {
+  border-color: var(--danger);
+  background-color: var(--danger-bg);
+}
+
+.support-item {
+  font-size: 0.875rem;
+}
+
+.icon-wrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  font-size: 12px;
+}

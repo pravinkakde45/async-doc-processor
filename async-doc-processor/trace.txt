@@ -1,0 +1,18 @@
+Traceback (most recent call last):
+  File "C:\Users\pravi\Downloads\async-doc-processor\async-doc-processor\get_trace_custom.py", line 3, in <module>
+    from app.main import app
+  File "C:\Users\pravi\Downloads\async-doc-processor\async-doc-processor\app\main.py", line 22, in <module>
+    from app.api.documents import router as documents_router
+  File "C:\Users\pravi\Downloads\async-doc-processor\async-doc-processor\app\api\documents.py", line 46, in <module>
+    router = APIRouter(prefix="/documents", tags=["Documents"])
+  File "C:\Users\pravi\anaconda3\Lib\site-packages\fastapi\routing.py", line 837, in __init__
+    super().__init__(
+    ~~~~~~~~~~~~~~~~^
+        routes=routes,
+        ^^^^^^^^^^^^^^
+    ...<4 lines>...
+        lifespan=lifespan,
+        ^^^^^^^^^^^^^^^^^^
+    )
+    ^
+TypeError: Router.__init__() got an unexpected keyword argument 'on_startup'

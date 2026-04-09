@@ -1,0 +1,42 @@
+DocFlow System - Startup Instructions
+=====================================
+
+To make the application fully functional, you must start BOTH the Backend (API & Workers) and the Frontend (Web UI). 
+
+Follow these exact steps:
+
+--------------------------------------------------
+PART 1: START THE BACKEND (Using Docker)
+--------------------------------------------------
+1. Open a new terminal.
+2. Change into the backend directory:
+   cd async-doc-processor
+
+3. Start all backend services (PostgreSQL, Redis, FastAPI, Celery) in the background:
+   docker compose up -d
+
+(Note: You only need to add "--build" if you make changes to the python backend code: "docker compose up -d --build")
+
+
+--------------------------------------------------
+PART 2: START THE FRONTEND (React)
+--------------------------------------------------
+1. Open a SECOND (new) terminal window.
+2. Change into the frontend directory:
+   cd frontend
+
+3. Install the required packages (You only need to do this once):
+   npm install
+
+4. Start the Frontend development server:
+   npm run dev
+
+
+--------------------------------------------------
+STEP 3: ACCESS THE SYSTEM
+--------------------------------------------------
+Once both are running, open your web browser and navigate to:
+http://localhost:5173
+
+(Optional) To view the Backend API documentation directly:
+http://localhost:8000/docs

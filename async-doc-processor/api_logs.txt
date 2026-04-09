@@ -1,0 +1,212 @@
+time="2026-04-08T22:59:06+05:30" level=warning msg="C:\\Users\\pravi\\Downloads\\async-doc-processor\\async-doc-processor\\docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+doc_api  | INFO:     Will watch for changes in these directories: ['/app']
+doc_api  | INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+doc_api  | INFO:     Started reloader process [1] using WatchFiles
+doc_api  | INFO:     Started server process [8]
+doc_api  | INFO:     Waiting for application startup.
+doc_api  | 2026-04-07 13:55:29 | INFO     | app.main | === Starting AsyncDocProcessor ===
+doc_api  | 2026-04-07 13:55:29,789 INFO sqlalchemy.engine.Engine select pg_catalog.version()
+doc_api  | 2026-04-07 13:55:29,789 INFO sqlalchemy.engine.Engine [raw sql] {}
+doc_api  | 2026-04-07 13:55:29 | INFO     | sqlalchemy.engine.Engine | select pg_catalog.version()
+doc_api  | 2026-04-07 13:55:29 | INFO     | sqlalchemy.engine.Engine | [raw sql] {}
+doc_api  | 2026-04-07 13:55:29,790 INFO sqlalchemy.engine.Engine select current_schema()
+doc_api  | 2026-04-07 13:55:29,791 INFO sqlalchemy.engine.Engine [raw sql] {}
+doc_api  | 2026-04-07 13:55:29 | INFO     | sqlalchemy.engine.Engine | select current_schema()
+doc_api  | 2026-04-07 13:55:29 | INFO     | sqlalchemy.engine.Engine | [raw sql] {}
+doc_api  | 2026-04-07 13:55:29 | INFO     | sqlalchemy.engine.Engine | show standard_conforming_strings
+doc_api  | 2026-04-07 13:55:29 | INFO     | sqlalchemy.engine.Engine | [raw sql] {}
+doc_api  | 2026-04-07 13:55:29,792 INFO sqlalchemy.engine.Engine show standard_conforming_strings
+doc_api  | 2026-04-07 13:55:29,792 INFO sqlalchemy.engine.Engine [raw sql] {}
+doc_api  | 2026-04-07 13:55:29 | INFO     | sqlalchemy.engine.Engine | BEGIN (implicit)
+doc_api  | 2026-04-07 13:55:29,793 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+doc_api  | 2026-04-07 13:55:29,798 INFO sqlalchemy.engine.Engine SELECT pg_catalog.pg_class.relname 
+doc_api  | FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+doc_api  | WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+doc_api  | 2026-04-07 13:55:29,798 INFO sqlalchemy.engine.Engine [generated in 0.00025s] {'table_name': 'documents', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+doc_api  | 2026-04-07 13:55:29 | INFO     | sqlalchemy.engine.Engine | SELECT pg_catalog.pg_class.relname 
+doc_api  | FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+doc_api  | WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+doc_api  | 2026-04-07 13:55:29 | INFO     | sqlalchemy.engine.Engine | [generated in 0.00025s] {'table_name': 'documents', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+doc_api  | 2026-04-07 13:55:29 | INFO     | sqlalchemy.engine.Engine | SELECT pg_catalog.pg_type.typname 
+doc_api  | FROM pg_catalog.pg_type JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_type.typnamespace 
+doc_api  | WHERE pg_catalog.pg_type.typname = %(typname_1)s AND pg_catalog.pg_type_is_visible(pg_catalog.pg_type.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+doc_api  | 2026-04-07 13:55:29 | INFO     | sqlalchemy.engine.Engine | [generated in 0.00025s] {'typname_1': 'document_status', 'nspname_1': 'pg_catalog'}
+doc_api  | 2026-04-07 13:55:29,805 INFO sqlalchemy.engine.Engine SELECT pg_catalog.pg_type.typname 
+doc_api  | FROM pg_catalog.pg_type JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_type.typnamespace 
+doc_api  | WHERE pg_catalog.pg_type.typname = %(typname_1)s AND pg_catalog.pg_type_is_visible(pg_catalog.pg_type.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+doc_api  | 2026-04-07 13:55:29,806 INFO sqlalchemy.engine.Engine [generated in 0.00025s] {'typname_1': 'document_status', 'nspname_1': 'pg_catalog'}
+doc_api  | 2026-04-07 13:55:29 | INFO     | sqlalchemy.engine.Engine | COMMIT
+doc_api  | 2026-04-07 13:55:29,807 INFO sqlalchemy.engine.Engine COMMIT
+doc_api  | 2026-04-07 13:55:29 | INFO     | app.core.database | Database tables created / verified.
+doc_api  | 2026-04-07 13:55:29 | INFO     | app.main | Upload dir: /app/uploads
+doc_api  | INFO:     Application startup complete.
+doc_api  | INFO:     172.18.0.1:42670 - "GET /docs HTTP/1.1" 200 OK
+doc_api  | INFO:     172.18.0.1:42682 - "GET /openapi.json HTTP/1.1" 200 OK
+doc_api  | Traceback (most recent call last):
+doc_api  |   File "/usr/local/bin/uvicorn", line 8, in <module>
+doc_api  |     sys.exit(main())
+doc_api  |              ^^^^^^
+doc_api  |   File "/usr/local/lib/python3.11/site-packages/click/core.py", line 1485, in __call__
+doc_api  |     return self.main(*args, **kwargs)
+doc_api  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+doc_api  |   File "/usr/local/lib/python3.11/site-packages/click/core.py", line 1406, in main
+doc_api  |     rv = self.invoke(ctx)
+doc_api  |          ^^^^^^^^^^^^^^^^
+doc_api  |   File "/usr/local/lib/python3.11/site-packages/click/core.py", line 1269, in invoke
+doc_api  |     return ctx.invoke(self.callback, **ctx.params)
+doc_api  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+doc_api  |   File "/usr/local/lib/python3.11/site-packages/click/core.py", line 824, in invoke
+doc_api  |     return callback(*args, **kwargs)
+doc_api  |            ^^^^^^^^^^^^^^^^^^^^^^^^^
+doc_api  |   File "/usr/local/lib/python3.11/site-packages/uvicorn/main.py", line 412, in main
+doc_api  |     run(
+doc_api  |   File "/usr/local/lib/python3.11/site-packages/uvicorn/main.py", line 574, in run
+doc_api  |     ChangeReload(config, target=server.run, sockets=[sock]).run()
+doc_api  |   File "/usr/local/lib/python3.11/site-packages/uvicorn/supervisors/basereload.py", line 52, in run
+doc_api  |     for changes in self:
+doc_api  |   File "/usr/local/lib/python3.11/site-packages/uvicorn/supervisors/basereload.py", line 71, in __next__
+doc_api  |     return self.should_restart()
+doc_api  |            ^^^^^^^^^^^^^^^^^^^^^
+doc_api  |   File "/usr/local/lib/python3.11/site-packages/uvicorn/supervisors/watchfilesreload.py", line 84, in should_restart
+doc_api  |     changes = next(self.watcher)
+doc_api  |               ^^^^^^^^^^^^^^^^^^
+doc_api  |   File "/usr/local/lib/python3.11/site-packages/watchfiles/main.py", line 130, in watch
+doc_api  |     raw_changes = watcher.watch(debounce, step, rust_timeout, stop_event)
+doc_api  |                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+doc_api  | _rust_notify.WatchfilesRustInternalError: error in underlying watcher: IO error for operation on /app: Input/output error (os error 5) about ["/app"]
+doc_api  | INFO:     Will watch for changes in these directories: ['/app']
+doc_api  | INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+doc_api  | INFO:     Started reloader process [1] using WatchFiles
+doc_api  | INFO:     Started server process [9]
+doc_api  | INFO:     Waiting for application startup.
+doc_api  | 2026-04-08 17:25:03 | INFO     | app.main | === Starting AsyncDocProcessor ===
+doc_api  | ERROR:    Traceback (most recent call last):
+doc_api  |   File "/usr/local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 146, in __init__
+doc_api  |     self._dbapi_connection = engine.raw_connection()
+doc_api  |                              ^^^^^^^^^^^^^^^^^^^^^^^
+doc_api  |   File "/usr/local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 3302, in raw_connection
+doc_api  |     return self.pool.connect()
+doc_api  |            ^^^^^^^^^^^^^^^^^^^
+doc_api  |   File "/usr/local/lib/python3.11/site-packages/sqlalchemy/pool/base.py", line 449, in connect
+doc_api  |     return _ConnectionFairy._checkout(self)
+doc_api  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+doc_api  |   File "/usr/local/lib/python3.11/site-packages/sqlalchemy/pool/base.py", line 1263, in _checkout
+doc_api  |     fairy = _ConnectionRecord.checkout(pool)
+doc_api  |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+doc_api  |   File "/usr/local/lib/python3.11/site-packages/sqlalchemy/pool/base.py", line 712, in checkout
+doc_api  |     rec = pool._do_get()
+doc_api  |           ^^^^^^^^^^^^^^
+doc_api  |   File "/usr/local/lib/python3.11/site-packages/sqlalchemy/pool/impl.py", line 179, in _do_get
+doc_api  |     with util.safe_reraise():
+doc_api  |   File "/usr/local/lib/python3.11/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+doc_api  |     raise exc_value.with_traceback(exc_tb)
+doc_api  |   File "/usr/local/lib/python3.11/site-packages/sqlalchemy/pool/impl.py", line 177, in _do_get
+doc_api  |     return self._create_connection()
+doc_api  |            ^^^^^^^^^^^^^^^^^^^^^^^^^
+doc_api  |   File "/usr/local/lib/python3.11/site-packages/sqlalchemy/pool/base.py", line 390, in _create_connection
+doc_api  |     return _ConnectionRecord(self)
+doc_api  |            ^^^^^^^^^^^^^^^^^^^^^^^
+doc_api  |   File "/usr/local/lib/python3.11/site-packages/sqlalchemy/pool/base.py", line 674, in __init__
+doc_api  |     self.__connect()
+doc_api  |   File "/usr/local/lib/python3.11/site-packages/sqlalchemy/pool/base.py", line 900, in __connect
+doc_api  |     with util.safe_reraise():
+doc_api  |   File "/usr/local/lib/python3.11/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+doc_api  |     raise exc_value.with_traceback(exc_tb)
+doc_api  |   File "/usr/local/lib/python3.11/site-packages/sqlalchemy/pool/base.py", line 896, in __connect
+doc_api  |     self.dbapi_connection = connection = pool._invoke_creator(self)
+doc_api  |                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+doc_api  |   File "/usr/local/lib/python3.11/site-packages/sqlalchemy/engine/create.py", line 643, in connect
+doc_api  |     return dialect.connect(*cargs, **cparams)
+doc_api  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+doc_api  |   File "/usr/local/lib/python3.11/site-packages/sqlalchemy/engine/default.py", line 621, in connect
+doc_api  |     return self.loaded_dbapi.connect(*cargs, **cparams)
+doc_api  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+doc_api  |   File "/usr/local/lib/python3.11/site-packages/psycopg2/__init__.py", line 122, in connect
+doc_api  |     conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+doc_api  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+doc_api  | psycopg2.OperationalError: connection to server at "postgres" (172.18.0.4), port 5432 failed: FATAL:  the database system is starting up
+doc_api  | 
+doc_api  | 
+doc_api  | The above exception was the direct cause of the following exception:
+doc_api  | 
+doc_api  | Traceback (most recent call last):
+doc_api  |   File "/usr/local/lib/python3.11/site-packages/starlette/routing.py", line 693, in lifespan
+doc_api  |     async with self.lifespan_context(app) as maybe_state:
+doc_api  |   File "/usr/local/lib/python3.11/contextlib.py", line 210, in __aenter__
+doc_api  |     return await anext(self.gen)
+doc_api  |            ^^^^^^^^^^^^^^^^^^^^^
+doc_api  |   File "/usr/local/lib/python3.11/site-packages/fastapi/routing.py", line 133, in merged_lifespan
+doc_api  |     async with original_context(app) as maybe_original_state:
+doc_api  |   File "/usr/local/lib/python3.11/contextlib.py", line 210, in __aenter__
+doc_api  |     return await anext(self.gen)
+doc_api  |            ^^^^^^^^^^^^^^^^^^^^^
+doc_api  |   File "/app/app/main.py", line 41, in lifespan
+doc_api  |     init_db()           # Create tables if they don't exist
+doc_api  |     ^^^^^^^^^
+doc_api  |   File "/app/app/core/database.py", line 51, in init_db
+doc_api  |     Base.metadata.create_all(bind=engine)
+doc_api  |   File "/usr/local/lib/python3.11/site-packages/sqlalchemy/sql/schema.py", line 5868, in create_all
+doc_api  |     bind._run_ddl_visitor(
+doc_api  |   File "/usr/local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 3252, in _run_ddl_visitor
+doc_api  |     with self.begin() as conn:
+doc_api  |   File "/usr/local/lib/python3.11/contextlib.py", line 137, in __enter__
+doc_api  |     return next(self.gen)
+doc_api  |            ^^^^^^^^^^^^^^
+doc_api  |   File "/usr/local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 3242, in begin
+doc_api  |     with self.connect() as conn:
+doc_api  |          ^^^^^^^^^^^^^^
+doc_api  |   File "/usr/local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 3278, in connect
+doc_api  |     return self._connection_cls(self)
+doc_api  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+doc_api  |   File "/usr/local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 148, in __init__
+doc_api  |     Connection._handle_dbapi_exception_noconnection(
+doc_api  |   File "/usr/local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 2442, in _handle_dbapi_exception_noconnection
+doc_api  |     raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+doc_api  |   File "/usr/local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 146, in __init__
+doc_api  |     self._dbapi_connection = engine.raw_connection()
+doc_api  |                              ^^^^^^^^^^^^^^^^^^^^^^^
+doc_api  |   File "/usr/local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 3302, in raw_connection
+doc_api  |     return self.pool.connect()
+doc_api  |            ^^^^^^^^^^^^^^^^^^^
+doc_api  |   File "/usr/local/lib/python3.11/site-packages/sqlalchemy/pool/base.py", line 449, in connect
+doc_api  |     return _ConnectionFairy._checkout(self)
+doc_api  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+doc_api  |   File "/usr/local/lib/python3.11/site-packages/sqlalchemy/pool/base.py", line 1263, in _checkout
+doc_api  |     fairy = _ConnectionRecord.checkout(pool)
+doc_api  |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+doc_api  |   File "/usr/local/lib/python3.11/site-packages/sqlalchemy/pool/base.py", line 712, in checkout
+doc_api  |     rec = pool._do_get()
+doc_api  |           ^^^^^^^^^^^^^^
+doc_api  |   File "/usr/local/lib/python3.11/site-packages/sqlalchemy/pool/impl.py", line 179, in _do_get
+doc_api  |     with util.safe_reraise():
+doc_api  |   File "/usr/local/lib/python3.11/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+doc_api  |     raise exc_value.with_traceback(exc_tb)
+doc_api  |   File "/usr/local/lib/python3.11/site-packages/sqlalchemy/pool/impl.py", line 177, in _do_get
+doc_api  |     return self._create_connection()
+doc_api  |            ^^^^^^^^^^^^^^^^^^^^^^^^^
+doc_api  |   File "/usr/local/lib/python3.11/site-packages/sqlalchemy/pool/base.py", line 390, in _create_connection
+doc_api  |     return _ConnectionRecord(self)
+doc_api  |            ^^^^^^^^^^^^^^^^^^^^^^^
+doc_api  |   File "/usr/local/lib/python3.11/site-packages/sqlalchemy/pool/base.py", line 674, in __init__
+doc_api  |     self.__connect()
+doc_api  |   File "/usr/local/lib/python3.11/site-packages/sqlalchemy/pool/base.py", line 900, in __connect
+doc_api  |     with util.safe_reraise():
+doc_api  |   File "/usr/local/lib/python3.11/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+doc_api  |     raise exc_value.with_traceback(exc_tb)
+doc_api  |   File "/usr/local/lib/python3.11/site-packages/sqlalchemy/pool/base.py", line 896, in __connect
+doc_api  |     self.dbapi_connection = connection = pool._invoke_creator(self)
+doc_api  |                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+doc_api  |   File "/usr/local/lib/python3.11/site-packages/sqlalchemy/engine/create.py", line 643, in connect
+doc_api  |     return dialect.connect(*cargs, **cparams)
+doc_api  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+doc_api  |   File "/usr/local/lib/python3.11/site-packages/sqlalchemy/engine/default.py", line 621, in connect
+doc_api  |     return self.loaded_dbapi.connect(*cargs, **cparams)
+doc_api  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+doc_api  |   File "/usr/local/lib/python3.11/site-packages/psycopg2/__init__.py", line 122, in connect
+doc_api  |     conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+doc_api  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+doc_api  | sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) connection to server at "postgres" (172.18.0.4), port 5432 failed: FATAL:  the database system is starting up
+doc_api  | 
+doc_api  | (Background on this error at: https://sqlalche.me/e/20/e3q8)
+doc_api  | 
+doc_api  | ERROR:    Application startup failed. Exiting.

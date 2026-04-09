@@ -1,0 +1,120 @@
+
+# ──────────────────────────────────────────────────────────────────────────────
+# Async Document Processor — full stack
+#
+# Services:
+#   postgres  – persistent storage
+#   redis     – message broker + pub/sub
+#   api       – FastAPI application (uvicorn)
+#   worker    – Celery background processor
+# ──────────────────────────────────────────────────────────────────────────────
+
+services:
+
+  # ── PostgreSQL ──────────────────────────────────────────────────────────────
+  postgres:
+    image: postgres:16-alpine
+    container_name: doc_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB:       doc_processor
+      POSTGRES_USER:     postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # ── Redis ───────────────────────────────────────────────────────────────────
+  redis:
+    image: redis:7-alpine
+    container_name: doc_redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # ── FastAPI Application ─────────────────────────────────────────────────────
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: doc_api
+    restart: unless-stopped
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+    ports:
+      - "8000:8000"
+    environment:
+      DATABASE_URL:           postgresql://postgres:postgres@postgres:5432/doc_processor
+      REDIS_URL:              redis://redis:6379/0
+      CELERY_BROKER_URL:      redis://redis:6379/0
+      CELERY_RESULT_BACKEND:  redis://redis:6379/1
+      UPLOAD_DIR:             /app/uploads
+      DEBUG:                  "true"
+    volumes:
+      - .:/app
+      - upload_data:/app/uploads
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+
+  # ── Celery Worker ───────────────────────────────────────────────────────────
+  worker:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: doc_worker
+    restart: unless-stopped
+    command: >
+      celery -A app.workers.celery_app.celery_app worker
+      --loglevel=info
+      --concurrency=4
+      -Q celery
+    environment:
+      DATABASE_URL:           postgresql://postgres:postgres@postgres:5432/doc_processor
+      REDIS_URL:              redis://redis:6379/0
+      CELERY_BROKER_URL:      redis://redis:6379/0
+      CELERY_RESULT_BACKEND:  redis://redis:6379/1
+      UPLOAD_DIR:             /app/uploads
+    volumes:
+      - .:/app
+      - upload_data:/app/uploads
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+
+  # ── Celery Flower (monitoring dashboard) ────────────────────────────────────
+  flower:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: doc_flower
+    restart: unless-stopped
+    command: >
+      celery -A app.workers.celery_app.celery_app flower
+      --port=5555
+    ports:
+      - "5555:5555"
+    environment:
+      CELERY_BROKER_URL:     redis://redis:6379/0
+      CELERY_RESULT_BACKEND: redis://redis:6379/1
+    depends_on:
+      - redis
+      - worker
+
+volumes:
+  postgres_data:
+  upload_data:

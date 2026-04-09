@@ -1,0 +1,38 @@
+.settings-page {
+  padding: 1rem;
+}
+
+.settings-card {
+  max-width: 600px;
+  margin-top: 1rem;
+}
+
+.settings-group {
+  margin-bottom: 2rem;
+}
+
+.settings-group h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.5rem;
+}
+
+.setting-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 0;
+}
+
+.setting-info h4 {
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+}
+
+.setting-info p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}

@@ -1,0 +1,176 @@
+.detail-page {
+  width: 100%;
+}
+
+.detail-header h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: 350px 1fr;
+  gap: 1.5rem;
+}
+
+.section-title {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.icon-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  background-color: var(--primary-light);
+}
+
+.meta-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.meta-grid label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-bottom: 0.25rem;
+  display: block;
+}
+
+.meta-grid div {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+/* Timeline */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding-left: 0.5rem;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 1rem;
+  bottom: 2rem;
+  left: 1.2rem;
+  width: 2px;
+  background-color: var(--border-color);
+  z-index: 1;
+}
+
+.timeline-item {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.timeline-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 0 4px var(--bg-card);
+  z-index: 2;
+}
+
+.timeline-item.active .timeline-icon {
+  box-shadow: 0 0 0 4px var(--primary-light);
+}
+
+.dot-inner {
+  width: 8px;
+  height: 8px;
+  background-color: white;
+  border-radius: 50%;
+}
+
+.timeline-content {
+  flex: 1;
+}
+
+.timeline-badge {
+  background-color: var(--primary-light);
+  color: var(--primary);
+  padding: 0.125rem 0.5rem;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+}
+
+.timeline-item.pending .font-semibold {
+  color: var(--text-muted);
+}
+
+/* Edit Data Right Column */
+.fill-height {
+  height: 100%;
+}
+
+.title-input {
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.summary-textarea {
+  resize: vertical;
+  min-height: 120px;
+  line-height: 1.5;
+}
+
+.keyword-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.25rem 0.75rem;
+  background-color: var(--bg-hover);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-xl);
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.tag-close {
+  cursor: pointer;
+  color: var(--text-muted);
+}
+
+.tag-close:hover {
+  color: var(--danger);
+}
+
+.add-tag-btn {
+  background: transparent;
+  border: none;
+  font-size: 0.75rem;
+  color: var(--primary);
+  font-weight: 500;
+  outline: none;
+  width: 150px;
+}
+
+.edit-footer {
+  border-top: 1px solid var(--border-color);
+}
+
+.edit-save-btn {
+  background-color: var(--text-primary);
+  color: var(--bg-main);
+}
