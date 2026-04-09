@@ -17,7 +17,8 @@ from contextlib import asynccontextmanager
 
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import JSONResponse
+from fastapi.responses import JSONResponse, FileResponse
+from fastapi.staticfiles import StaticFiles
 
 from app.api.documents import router as documents_router
 from app.core.config import settings
@@ -69,6 +70,13 @@ app.add_middleware(
 
 # ── Routers ───────────────────────────────────────────────────────────────────
 app.include_router(documents_router, prefix="/api/v1")
+
+# ── Static Files & Frontend ───────────────────────────────────────────────────
+app.mount("/static", StaticFiles(directory="frontend"), name="static")
+
+@app.get("/")
+def serve_frontend():
+    return FileResponse("frontend/index.html")
 
 
 # ── Health check ──────────────────────────────────────────────────────────────
