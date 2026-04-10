@@ -24,6 +24,8 @@ from app.api.documents import router as documents_router
 from app.core.config import settings
 from app.core.database import init_db
 
+
+
 # ── Logging setup ─────────────────────────────────────────────────────────────
 logging.basicConfig(
     level=logging.DEBUG if settings.debug else logging.INFO,
@@ -72,11 +74,14 @@ app.add_middleware(
 app.include_router(documents_router, prefix="/api/v1")
 
 # ── Static Files & Frontend ───────────────────────────────────────────────────
-app.mount("/static", StaticFiles(directory="frontend"), name="static")
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+FRONTEND_DIR = os.path.join(BASE_DIR, "frontend", "dist")
+
+app.mount("/assets", StaticFiles(directory=os.path.join(FRONTEND_DIR, "assets")), name="assets")
 
 @app.get("/")
 def serve_frontend():
-    return FileResponse("frontend/index.html")
+    return FileResponse(os.path.join(FRONTEND_DIR, "index.html"))
 
 
 # ── Health check ──────────────────────────────────────────────────────────────
