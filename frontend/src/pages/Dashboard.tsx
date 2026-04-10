@@ -65,9 +65,10 @@ export const Dashboard: React.FC = () => {
   };
 
   const getProgressForDoc = (doc: DocumentInfo): { val: number; label: string } | null => {
-    if (doc.status === 'completed' || doc.status === 'finalized') return null;
-    if (doc.status === 'failed') return null;
-    if (doc.status === 'queued') return { val: 0, label: 'Waiting...' };
+    const statusStr = doc.status.toLowerCase();
+    if (statusStr === 'completed' || statusStr === 'finalized') return null;
+    if (statusStr === 'failed') return null;
+    if (statusStr === 'queued') return { val: 0, label: 'Waiting...' };
     // Simulated active state for list view since we don't store 0-100 in DB
     return { val: 40, label: 'Processing...' }; 
   };

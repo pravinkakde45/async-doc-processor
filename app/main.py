@@ -76,8 +76,12 @@ app.include_router(documents_router, prefix="/api/v1")
 # ── Static Files & Frontend ───────────────────────────────────────────────────
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 FRONTEND_DIR = os.path.join(BASE_DIR, "frontend", "dist")
+ASSETS_DIR = os.path.join(FRONTEND_DIR, "assets")
 
-app.mount("/assets", StaticFiles(directory=os.path.join(FRONTEND_DIR, "assets")), name="assets")
+if os.path.isdir(ASSETS_DIR):
+    app.mount("/assets", StaticFiles(directory=ASSETS_DIR), name="assets")
+else:
+    logger.warning(f"Frontend assets directory not found: {ASSETS_DIR}")
 
 @app.get("/")
 def serve_frontend():

@@ -83,8 +83,11 @@ async def upload_documents(
         )
 
         # ⚡ Dispatch background task – this returns IMMEDIATELY
-        process_document.delay(str(doc.id), doc.filename)
-        logger.info("Queued Celery task for document %s", doc.id)
+        try:
+            process_document.delay(str(doc.id), doc.filename)
+            logger.info("Queued Celery task for document %s", doc.id)
+        except Exception as e:
+            logger.error("Failed to queue Celery task for %s: %s", doc.id, e)
 
         responses.append(DocumentUploadResponse(
             id=doc.id,
@@ -167,8 +170,11 @@ def retry_document(document_id: UUID, db: Session = Depends(get_db)):
     doc = document_service.update_status(db, document_id, DocumentStatus.QUEUED)
 
     # Re-dispatch Celery task
-    process_document.delay(str(doc.id), doc.filename)
-    logger.info("Retried document %s", document_id)
+    try:
+        process_document.delay(str(doc.id), doc.filename)
+        logger.info("Retried document %s", document_id)
+    except Exception as e:
+        logger.error("Failed to queue Celery task for %s: %s", doc.id, e)
     return doc
 
 
